@@ -3,3 +3,4 @@
 * 索引-值遍历循环:for i,h in enumerate(height):其等价于 for i in range(len(height)):
 * 三元表达式：x= A if condition else B
 * height[-1],这里的-1指的是列表当中最后一个元素，略微增加运算时间。
+* 一个典型的列表循环：ans=sum(min(right_max[i],left_max[i])- height[i] for i in range(n))
