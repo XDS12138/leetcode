@@ -148,7 +148,11 @@ intervals.sort(key=lambda x: x[0])
 ```python
 merged[-1][1]
 ```
-
+* 二维列表建立
+  ```python
+directions=[[0,1],[1,0],[0,-1],[-1,0]]
+visit = [[False]*columns for _ in range(rows)]
+```
 * 列表原地覆盖（保持引用不变）
 
 ```python
@@ -161,7 +165,14 @@ nums[:] = new
 import math
 count = math.gcd(k, n)
 ```
-
+* 矩阵取横竖长度
+```python
+m,n=len(matrix),len(matrix[0])
+```
+* 遍历取值
+  ···python
+  flag_col0 = any(matrix[i][0] == 0 for i in range(m))
+  ···
 ---
 
 ## 核心数据结构对比：List vs Heap vs Deque（如果你怕表格渲染差，就用代码块）
@@ -198,10 +209,11 @@ int P = 0;
 P = 10086;
 ```
 
-* 建立列表（左右数组）
+* 建立列表（左右数组），二维列表，用bool初始化矩阵
 
 ```cpp
 vector<int> left_max(n), right_max(n);
+vector<vector<bool>> visited(rows, vector<bool>(columns))//初始值默认都是false，括号当中第一个为创建多少个元素，第二个为元素初始化的值。
 ```
 
 * array 初始化与填充
