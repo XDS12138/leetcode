@@ -323,6 +323,15 @@ sort(intervals.begin(), intervals.end(),
 
 * 判 0：`!matrix[i][j]` 等价于 `matrix[i][j] == 0`
 
+
+* 初始化一个固定不变，经常使用的小表
+* 
+
+```cpp
+private:
+    static constexpr int directions[4][2] = {{0, 1}, {1, 0}, {0, -1}, {-1, 0}};
+
+```
 ---
 
 ## 数据结构（概念速记）
