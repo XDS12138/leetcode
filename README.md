@@ -170,10 +170,24 @@ count = math.gcd(k, n)
 m,n=len(matrix),len(matrix[0])
 ```
 * 遍历取值
-  ···python
+```python
   flag_col0 = any(matrix[i][0] == 0 for i in range(m))
-  ···
+```
+
+* python当中的多重赋值以及元祖交换无需像c++一样考虑tmp
+```python
+a, b, c, d = b, c, d, a
+
+```
+  等价于
+```c++
+_tmp = (b, c, d, a)
+a, b, c, d = _tmp
+
+
+```
 ---
+
 
 ## 核心数据结构对比：List vs Heap vs Deque（如果你怕表格渲染差，就用代码块）
 
@@ -331,6 +345,19 @@ sort(intervals.begin(), intervals.end(),
 private:
     static constexpr int directions[4][2] = {{0, 1}, {1, 0}, {0, -1}, {-1, 0}};
 
+```
+
+* if判定条件bool数组：判定为真或越界即进入（对于此判定的最后一个二元bool的数组）
+```cpp
+            if(nextrow<0||nextrow>=rows||nextcolumn<0||nextcolumn>=columns||visited[nextrow][nextcolumn]){
+
+            }
+```
+
+* 遍历矩阵：
+```c++
+  for (const auto& row: matrix) {
+            for (int element: row) {
 ```
 ---
 
