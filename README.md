@@ -43,6 +43,14 @@ height[-1]
 ans = sum(min(right_max[i], left_max[i]) - height[i] for i in range(n))
 ```
 
+* or 的并列
+```python
+if headA is None or headB is None#两个都非
+if headA or headB is None#会被翻译成
+if (headA) or (headB is None):
+
+```
+
 * 建立列表（初始化）
 
 ```python
@@ -359,6 +367,18 @@ private:
   for (const auto& row: matrix) {
             for (int element: row) {
 ```
+
+* 哈希存储节点指针：
+* 赋值链表：
+```c++
+unordered_set<ListNode*> visited; 存的是 节点指针（地址）
+ListNode*temp=head;//给temp赋值表头地址，这个listnode*就是初始化的过程，第二次赋值可以不用这个前缀
+```
+* 链表指针移动:
+``` c++
+temp = temp->next
+```
+
 ---
 
 ## 数据结构（概念速记）
@@ -393,6 +413,6 @@ int cnt_t[128]{};
 ```cpp
 return ans_left < 0 ? "" : s.substr(ans_left, ans_right - ans_left + 1);
 ```
-
+* 找
 ---
 
