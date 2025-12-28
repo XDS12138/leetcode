@@ -36,7 +36,11 @@ x = A if condition else B
 ```python
 height[-1]
 ```
-
+*不等
+```
+while pa is not pb
+while pa != pb
+```
 * 典型列表推导式循环（求和）
 
 ```python
