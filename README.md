@@ -166,6 +166,10 @@ directions=[[0,1],[1,0],[0,-1],[-1,0]]
 visit = [[False]*columns for _ in range(rows)]
 ```
 * 列表原地覆盖（保持引用不变）
+vector<pair<int,int>> v;
+
+v.push_back({1,2});      // 先构造一个临时pair，再移动/拷贝进v
+v.emplace_back(1,2);     // 直接在v的末尾原地构造pair(1,2)
 
 ```python
 nums[:] = new
@@ -229,7 +233,11 @@ vector<long long> pre(n + 1, 0);
 vector<int> ans;
 ```
 
-* for 的条件用 `;` 分割
+* for 的条件用 `;` 分割,其中第一项是初始化，第二项是条件，第三项是迭代。例如：for(初始化 ; 条件 ; 迭代)
+```cpp
+for (int i = 0, j = n - 1; i < j; i++, j--) { ... }
+
+```
 
 * 变量不能重复“声明初始化”，但可以重复赋值
 
@@ -385,7 +393,14 @@ ListNode*temp=head;//给temp赋值表头地址，这个listnode*就是初始化�
 ``` c++
 temp = temp->next
 ```
+* 给数组加值
+```c++
+vector<pair<int,int>> v;
 
+v.push_back({1,2});      // 先构造一个临时pair，再移动/拷贝进v
+v.emplace_back(1,2);     // 直接在v的末尾原地构造pair(1,2)
+
+```
 ---
 
 ## 数据结构（概念速记）
@@ -420,6 +435,11 @@ int cnt_t[128]{};
 ```cpp
 return ans_left < 0 ? "" : s.substr(ans_left, ans_right - ans_left + 1);
 ```
-* 找
+* 加值对比：
+Python list：append / extend
+↔ C++ vector：push_back/emplace_back / insert(end, begin, end)
+Python set：add / update
+↔ C++ set/unordered_set：insert(x) / insert(begin, end)
+
 ---
 
