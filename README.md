@@ -195,7 +195,10 @@ a, b, c, d = b, c, d, a
 ```c++
 _tmp = (b, c, d, a)
 a, b, c, d = _tmp
-
+* 判断回文，双向遍历，甚至不需要指针和循环
+```python
+return vals == vals[::-1]
+```
 
 ```
 ---
