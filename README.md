@@ -161,7 +161,7 @@ intervals.sort(key=lambda x: x[0])
 merged[-1][1]
 ```
 * 二维列表建立
-  ```python
+```python
 directions=[[0,1],[1,0],[0,-1],[-1,0]]
 visit = [[False]*columns for _ in range(rows)]
 ```
@@ -401,6 +401,11 @@ v.push_back({1,2});      // 先构造一个临时pair，再移动/拷贝进v
 v.emplace_back(1,2);     // 直接在v的末尾原地构造pair(1,2)
 
 ```
+
+* 取余，取模
+```cpp
+carry=sum % 10；取余
+carry=sum / 10; 取模
 ---
 
 ## 数据结构（概念速记）
