@@ -154,7 +154,18 @@ s[start:end]
 ```python
 intervals.sort(key=lambda x: x[0])
 ```
+* 定义一个函数
+```python
+    def reverse(self, head: ListNode, tail: ListNode):
+        prev = tail.next
+        p = head
+        while prev != tail:
+            nex = p.next
+            p.next = prev
+            prev = p
+            p = nex
 
+```
 * 二维列表取值：最后一个子列表的下标 1 元素
 
 ```python
@@ -401,11 +412,46 @@ v.push_back({1,2});      // 先构造一个临时pair，再移动/拷贝进v
 v.emplace_back(1,2);     // 直接在v的末尾原地构造pair(1,2)
 
 ```
+* 用数字作为节点
+```cpp
 
+head = tail = new ListNode(sum % 10);
+
+```
 * 取余，取模
 ```cpp
 carry=sum % 10；取余
 carry=sum / 10; 取模
+```
+* 将链表堆栈：
+```cpp
+stack<ListNode*> stk;
+//stack<T> 是标准库容器适配器（头文件 <stack>）
+//这里 T 是 ListNode*，也就是“节点指针”
+```
+
+*同时更改两个变量，通过函数。但是这个函数必须返回pair或者tuple
+```cpp
+  // 这里是 C++17 的写法，也可以写成
+            // pair<ListNode*, ListNode*> result = myReverse(head, tail);
+            // head = result.first;
+            // tail = result.second;
+            tie(head, tail) = myReverse(head, tail);
+
+//函数需要这样的
+ pair<ListNode*,ListNode*>reverse1(ListNode*head,ListNode*tail){
+        ListNode*xinweiba=tail->next;
+        ListNode*xinnaodai=head;
+        while(xinweiba!=tail){
+            ListNode*yucun=xinnaodai->next;
+            xinnaodai->next=xinweiba;
+            xinweiba=xinnaodai;
+            xinnaodai=yucun;
+        }
+        return {tail,head};
+
+```
+* 取地址而不取对象，更改指针的时候不会影响其。
 ---
 
 ## 数据结构（概念速记）
@@ -427,7 +473,7 @@ bool is_covered(int cnt_s[], int cnt_t[]) {
     ...
 }
 ```
-
+*
 * ASCII 计数表（0~127 直接下标计数）
 
 ```cpp
