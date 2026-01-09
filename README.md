@@ -185,6 +185,22 @@ v.emplace_back(1,2);     // 直接在v的末尾原地构造pair(1,2)
 ```python
 nums[:] = new
 ```
+* 哈希安全取值，值得注意，需要用get来安全取值，如果不用get，遇到none会报error。而c++不会。
+```python
+Python
+
+d[k]：必须有，不然 KeyError
+
+d.get(k, default)：可能没有，没就 default（不插入）
+
+d.setdefault(k, default)：没有就插入 default 并返回（更像 C++ 的 []）
+
+C++ unordered_map
+
+m[k]：没有就插入默认值再返回（有副作用）
+
+m.find(k)：只查不插入
+```
 
 * 最大公约数 gcd
 
@@ -335,7 +351,10 @@ if (cnt.count(pre - k)) ans += cnt[pre - k];
 #include <deque>
 deque<int> q;
 ```
-
+* 哨兵节点,除了dummy（listnode（0））之外：
+```cpp
+ListNode head, *tail = &head;//head为在栈上的虚拟节点，&为取地址
+```
 * 优先队列（默认大根堆）
 
 ```cpp
@@ -345,7 +364,37 @@ priority_queue<pair<int,int>> pq;
 pq.push({nums[i], i});
 ans.push_back(pq.top().first);
 ```
+* 实现小根堆的:
+```cpp
+// 目的：让 priority_queue 能存“自定义元素”，并按你指定的 key 排序
 
+struct Status {
+    int val;           // key：用于排序（优先级）
+    ListNode* ptr;     // payload：你真正要带着走的数据（指针/索引/对象等）
+
+    // priority_queue 默认是“大根堆”（top 最大）
+    // 把 < 反过来写，就能让它表现成“小根堆”（top 最小）
+    bool operator<(const Status& rhs) const {
+        return val > rhs.val;   // val 越小，越优先出现在 top()
+    }
+};
+
+priority_queue<Status> q;  // q.top() 取 val 最小的 Status
+
+// 用法：q.push({val, ptr});  // 入堆
+//      auto x = q.top(); q.pop();  // 取出最小的
+
+```
+
+```cpp
+struct Cmp {
+    bool operator()(const Status& a, const Status& b) const {
+        return a.val > b.val;  // 小根堆：val 小的优先
+    }
+};
+priority_queue<Status, vector<Status>, Cmp> q;
+
+```
 * range-for（只读）
 
 ```cpp
@@ -387,7 +436,12 @@ private:
 
             }
 ```
-
+* 运算左移一位，对于非负整数来说，等价于，乘2.
+```cpp
+subLength <<= 1;
+sublength = sunlength <<1;
+sublength*=2;   
+```
 * 遍历矩阵：
 ```c++
   for (const auto& row: matrix) {
@@ -451,7 +505,11 @@ stack<ListNode*> stk;
         return {tail,head};
 
 ```
-* 取地址而不取对象，更改指针的时候不会影响其。
+* 一个典型的指针类型函数：
+```cpp
+Node* copyRandomList(Node* head)//第一个node*指的是输出为指针类型，指针就是地址。如果去掉星号的就是节点对象，实体节点的意思。括号当中的是输入。
+本题用Node是因为题目给的就是Node
+```
 ---
 
 ## 数据结构（概念速记）
