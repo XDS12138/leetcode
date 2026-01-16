@@ -153,6 +153,9 @@ q.append(root)
 如果你直接写
 deque(x) 的语义是：把 x 里的每个元素依次取出来，放进队列。
 deque(root)：它会尝试“遍历 root”，但 TreeNode 不是可迭代对象，所以构造阶段就报错。
+同理，对于所有数据结构都是如此构造，deque list set tuple
+dict需要：mp={root:1}
+heapq:[priority,root)]
 ```
 * 切片取值（左闭右开）
 
