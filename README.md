@@ -144,7 +144,16 @@ if not something:
 from collections import Counter
 need = Counter(t)
 ```
-
+* 在python当中向双端队列当中压入树节点时，需要用列表来初始化队列，因为deque需要一个可迭代的对象。
+```python
+q = deque([root])
+等价于
+q = deque()
+q.append(root)
+如果你直接写
+deque(x) 的语义是：把 x 里的每个元素依次取出来，放进队列。
+deque(root)：它会尝试“遍历 root”，但 TreeNode 不是可迭代对象，所以构造阶段就报错。
+```
 * 切片取值（左闭右开）
 
 ```python
