@@ -4,7 +4,11 @@
 # 笔记速记（Python / C++ / 数据结构）
 
 ## Python
-
+* python可以使用列表做栈，使用方法与c++有些许不同：
+```python
+stk.append(root)#等于c++的push，c++的列表是push_back
+root = stk.pop()#pop等于c++的top+pop
+```
 * 倒序循环（注意：左闭右开）
 
 ```python
@@ -307,7 +311,8 @@ int left = 0, right = n - 1;
 ```cpp
 last.count(ch)
 ```
-
+* 队列不支持 while(Q)这样的表达，只有链表可以。队列只能用Q.empty()
+* 
 * 且：`&&`
 
 * 并列声明（常见写法）
