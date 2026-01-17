@@ -28,7 +28,14 @@ for i in range(len(height)):
 for h in height:
     ...
 ```
-
+* //和/的区别：
+```python
+%取余
+/真除
+//整除向下取整
+**幂运算
+divmod（a,b）得到(c,d):(a//b,a%b)
+```
 * 三元表达式
 
 ```python
