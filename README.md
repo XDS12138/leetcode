@@ -302,7 +302,12 @@ P = 10086;
 vector<int> left_max(n), right_max(n);
 vector<vector<bool>> visited(rows, vector<bool>(columns))//初始值默认都是false，括号当中第一个为创建多少个元素，第二个为元素初始化的值。
 ```
-
+* 同样的在双端队列当中，向双端队列当中放入数组也需要封装：
+```cpp
+        deque<tuple<int,int,TreeNode*,bool>>q;//初始化
+        q.push_back({0,(int)nums.size()-1,nullptr,false});//入队
+        auto[l,r,parent,is_left]=q.front();q.pop_front();//出队
+```
 * array 初始化与填充
 
 ```cpp
@@ -426,7 +431,10 @@ for (const auto &x : nums) {
     // x 依次表示 nums 的每个元素
 }
 ```
-
+* 上下界：
+```cpp
+dfs(root, LLONG_MIN, LLONG_MAX)
+```
 * sort + lambda 比较函数（重点：`[] () {}`）
 
 ```cpp
