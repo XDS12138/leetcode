@@ -110,7 +110,14 @@ cnt = defaultdict(int)
 import heapq
 heapq.heapify(q)
 ```
-
+* 字典插入的用法，setdefault，存在即返回，不存在即插入（避免同键的覆盖）。
+```python
+d.setdefault(key, default)
+等价于
+if depth not in rightmost_value_at_depth:
+    rightmost_value_at_depth[depth] = node.val
+在c++当中没有setdefault，只能写全
+```
 * 用负号把小根堆当“大根堆”（常用技巧）
 
 ```python
@@ -288,7 +295,15 @@ vector<int> ans;
 for (int i = 0, j = n - 1; i < j; i++, j--) { ... }
 
 ```
+* 列表的使用：
+```cpp
+TreeNode *prev = l.at(i - 1), *curr = l.at(i);
+等价于
+TreeNode *prev = l[i - 1], *curr = l[i];
+l[i]：不做越界检查，越界属于未定义行为（可能崩溃、可能读到垃圾、也可能看起来“没事”但其实错了）。
 
+l.at(i)：会检查 i 是否越界。如果 i >= l.size()，会抛出异常 std::out_of_range。
+```
 * 变量不能重复“声明初始化”，但可以重复赋值
 
 ```cpp
@@ -496,6 +511,12 @@ vector<pair<int,int>> v;
 
 v.push_back({1,2});      // 先构造一个临时pair，再移动/拷贝进v
 v.emplace_back(1,2);     // 直接在v的末尾原地构造pair(1,2)
+
+```
+
+* 函数初始化传参：
+```cpp
+vector<int>&v：在这个函数当中的v就是调用这个函数的时候传递的这个参数
 
 ```
 * 用数字作为节点
