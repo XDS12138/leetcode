@@ -103,7 +103,10 @@ ord(s[i])
 from collections import defaultdict
 cnt = defaultdict(int)
 ```
-
+*安全字典：python需要使用安全字典
+```python
+prefix = collections.defaultdict(int)//可以不检查就访问，不存在直接返0，不然的话还得做检查。
+```
 * heapify：把 list 原地变成“小根堆”
 
 ```python
