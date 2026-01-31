@@ -107,6 +107,7 @@ cnt = defaultdict(int)
 ```python
 prefix = collections.defaultdict(int)//可以不检查就访问，不存在直接返0，不然的话还得做检查。
 ```
+如果不使用安全字典，取值的时候也可以用prefix.get.()来安全取值，
 * heapify：把 list 原地变成“小根堆”
 
 ```python
