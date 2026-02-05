@@ -235,7 +235,20 @@ m[k]：没有就插入默认值再返回（有副作用）
 
 m.find(k)：只查不插入
 ```
+* 在二维列表当中将方向打包成列表：
+```python
+# 把4个方向打包成一个列表，然后轮询
+for x, y in [(r - 1, c), (r + 1, c), (r, c - 1), (r, c + 1)]:
+    # 只需要写一次边界检查和递归逻辑
+    if 0 <= x < nr and 0 <= y < nc and grid[x][y] == "1":
+        self.dfs(grid, x, y)
+```
+* 二元组取值
+```c++
+ queue<pair<int, int>> neighbors;
+int row = rc.first, col = rc.second;
 
+```
 * 最大公约数 gcd
 
 ```python
