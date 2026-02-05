@@ -416,6 +416,11 @@ deque<int> q;
 ```cpp
 ListNode head, *tail = &head;//head为在栈上的虚拟节点，&为取地址
 ```
+* 成员函数和成员变量：
+```cpp
+first和second这种用法是成员变量，不用加括号
+int row = rc.first;
+```
 * 优先队列（默认大根堆）
 
 ```cpp
@@ -620,5 +625,10 @@ Python list：append / extend
 Python set：add / update
 ↔ C++ set/unordered_set：insert(x) / insert(begin, end)
 
+* 字符串
+```python
+c++：''
+python:" "
+```
 ---
 
