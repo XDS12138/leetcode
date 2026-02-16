@@ -28,6 +28,16 @@ for i in range(len(height)):
 for h in height:
     ...
 ```
+* py当中的初始化前缀数：使用node=self即可
+```python
+    def __init__(self):
+        self.children = [None] * 26
+        self.isEnd = False
+    
+    def searchPrefix(self, prefix: str) -> "Trie":
+        node = self
+
+```
 * //和/的区别：
 ```python
 %取余
