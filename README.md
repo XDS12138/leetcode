@@ -523,6 +523,12 @@ sublength*=2;
 unordered_set<ListNode*> visited; 存的是 节点指针（地址）
 ListNode*temp=head;//给temp赋值表头地址，这个listnode*就是初始化的过程，第二次赋值可以不用这个前缀
 ```
+* 前缀数初始化：
+```cpp
+    Trie() :children(26),island(false){
+        //初始化
+    }
+```
 * 链表指针移动:
 ``` c++
 temp = temp->next
