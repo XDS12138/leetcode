@@ -51,6 +51,12 @@ divmod（a,b）得到(c,d):(a//b,a%b)
 ```python
 x = A if condition else B
 ```
+* 传递列表的数值而不是内存地址
+```python
+平时取值时例如，x=nums[0]
+当取完整列表的时候，不能x=nums,这样取的是地址
+需要x=nums[:]
+```
 
 * 负索引：最后一个元素（同样是 O(1)）
 
