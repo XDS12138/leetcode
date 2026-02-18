@@ -477,6 +477,10 @@ struct Cmp {
 priority_queue<Status, vector<Status>, Cmp> q;
 
 ```
+* 次方循环：
+```cpp
+for (int mask = 0; mask < (1 << n); ++mask)
+```
 * range-for（只读）
 
 ```cpp
