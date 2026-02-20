@@ -381,6 +381,11 @@ int left = 0, right = n - 1;
 ```cpp
 (mask & (1 << i))，将mask当中的每一位与1取‘与’
 ```
+*引号
+```cpp
+char用''
+string用""
+```
 * unordered_set / unordered_map 判断存在
 
 ```cpp
@@ -403,7 +408,7 @@ ans.push_back(0);
 ```
 
 * Python 需要 ord，C++ 不需要：因为 C++ 的 `char` 本身就是整数（ASCII/字节值）可直接参与下标/运算
-
+* length()和size()完全等价
 * range-for（如果要修改元素，用引用 `&`）
 
 ```cpp
