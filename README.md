@@ -328,7 +328,7 @@ vector<int> ans;
 for (int i = 0, j = n - 1; i < j; i++, j--) { ... }
 
 ```
-* 列表的使用：
+* 列表与字典的使用：
 ```cpp
 TreeNode *prev = l.at(i - 1), *curr = l.at(i);
 等价于
@@ -377,7 +377,10 @@ cntP.fill(0);
 ```cpp
 int left = 0, right = n - 1;
 ```
-
+* 按位与，逐位判断是否为1:
+```cpp
+(mask & (1 << i))，将mask当中的每一位与1取‘与’
+```
 * unordered_set / unordered_map 判断存在
 
 ```cpp
@@ -481,7 +484,7 @@ priority_queue<Status, vector<Status>, Cmp> q;
 ```cpp
 for (int mask = 0; mask < (1 << n); ++mask)
 ```
-* range-for（只读）
+* range-for，const，const的意思就是保持其变量始终不变，为常量，常用于标识输入（只读）
 
 ```cpp
 for (const auto &x : nums) {
